@@ -13,6 +13,17 @@ export default {
     render(h) {
         var self = this
         return h('input', {
+            class: {
+                'input-wrapper': true
+            },
+            style: {
+                'color': 'green',
+                'background-color': 'pink'
+            },
+            // attrs是render函数中的v-bind
+            attrs: {
+                id: 'myInput'
+            },
             // 原生dom下的
             domProps: {
                 value: self.value
