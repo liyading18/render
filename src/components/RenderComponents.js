@@ -12,7 +12,7 @@ export default {
     // v-model
     render(h) {
         var self = this
-        return h('input', {
+        return h('div', {
             class: {
                 'input-wrapper': true
             },
@@ -29,11 +29,22 @@ export default {
                 value: self.value
             },
             on: {
-                'input': function(event) {
-                    self.$emit('input', event.target.value)
+                // 事件监听-情况1
+                // 'click': function(event) {
+                //     console.log(event)
+                //     // self.$emit('input', event.target.value)
+                // }
+
+                // 事件监听-情况2-只可以点击一次
+                // ~  想到于once
+                '~click': function(event) {
+                    event.stopPropgation()  // 阻止事件冒泡
+                    event.stopPrevent()  // 阻止事件捕获
+                    event.target === event.target.current  //  相当于click.self
+                    console.log(event)
                 }
             }
-        })
+        }, '这是一个div')
     }
 
 
