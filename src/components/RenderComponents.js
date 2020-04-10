@@ -12,7 +12,7 @@ export default {
     // v-model
     render(h) {
         var self = this
-        return h('div', {
+        return h('input', {
             class: {
                 'input-wrapper': true
             },
@@ -37,14 +37,19 @@ export default {
 
                 // 事件监听-情况2-只可以点击一次
                 // ~  想到于once
-                '~click': function(event) {
-                    event.stopPropgation()  // 阻止事件冒泡
-                    event.stopPrevent()  // 阻止事件捕获
-                    event.target === event.target.current  //  相当于click.self
-                    console.log(event)
+                // '~click': function(event) {
+                //     event.stopPropgation()  // 阻止事件冒泡
+                //     event.stopPrevent()  // 阻止事件捕获
+                //     event.target === event.target.current  //  相当于click.self
+                //     console.log(event)
+                // }
+
+                // 事件修饰
+                'keyup': function(event) {
+                    console.log(event.keyCode)
                 }
             }
-        }, '这是一个div')
+        })
     }
 
 
