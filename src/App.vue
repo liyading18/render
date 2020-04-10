@@ -2,20 +2,24 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
 
-    <template>
+    <!-- <template>
       <div>
         <p>这是一个render 事例</p>
       </div>
-    </template>
+    </template> -->
 
+    <MyRender />
+    
   </div>
 </template>
 
 <script>
-
+import MyRender from '@/components/RenderComponents'
 export default {
   name: 'App',
-  components: {}
+  components: {
+    MyRender
+  }
 }
 </script>
 

@@ -1,3 +1,4 @@
+
 export default {
     data() {
         return {
@@ -5,6 +6,25 @@ export default {
             arr: [1,2,3,4,5],
             inputValue: ""
         };
+    },
+
+    /* <template>
+            <div :classs=""{'is-red': isRed }>
+                <p>这是一个render 事例</p>
+            </div>
+       </template> */
+
+    render(h) {
+        return h('div', {
+            // 第二个参数
+            'class': {
+                'is-red': this.isRed
+            }
+        },[
+            // 此处为第三个参数
+            h('p', '这是一个render 事例')
+        ]
+        )
     }
 };
 
