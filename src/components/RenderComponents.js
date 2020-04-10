@@ -8,6 +8,19 @@ export default {
         };
     },
 
+    // <template>
+    //     <ul>
+    //         <li v-for="item of arr">
+    //             {{ item }}
+    //         </li>
+    //     </ul>
+    // </template>
+
+    render(h) {
+        return h('ul', this.arr.map(item => h('li', item)))
+    }
+
+
     /* <template>
             <div :classs=""{'is-red': isRed } v-if="isRed">
                 <p>这是一个render 事例</p>
@@ -17,26 +30,26 @@ export default {
             </div>
        </template> */
 
-    render(h) {
-        // render函数中不可以使用vue指令。只能使用原生指令
-        if (this.isRed) {
-            return h('div', 
-                {
-                    // 第二个参数
-                    'class': {
-                        'is-red': this.isRed
-                    }
-                 },
-                [
-                    // 此处为第三个参数
-                    h('p', '这是一个render 事例')
-                ]
-            )
-        } else {
-            return h('div', [h('p', 'isRed 为 fasle')])
-        }
+    // render(h) {
+    //     // render函数中不可以使用vue指令。只能使用原生指令
+    //     if (this.isRed) {
+    //         return h('div', 
+    //             {
+    //                 // 第二个参数
+    //                 'class': {
+    //                     'is-red': this.isRed
+    //                 }
+    //              },
+    //             [
+    //                 // 此处为第三个参数
+    //                 h('p', '这是一个render 事例')
+    //             ]
+    //         )
+    //     } else {
+    //         return h('div', [h('p', 'isRed 为 fasle')])
+    //     }
        
-    }
+    // }
 };
 
 
