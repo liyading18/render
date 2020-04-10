@@ -8,8 +8,15 @@
       </div>
     </template> -->
 
-    <MyRender />
-    
+    <template>
+      <div class="wrapper">
+        <!-- <input :value="name" @input="name = $event.target.value"> -->
+        <MyRender  v-model="name" />
+        {{ name }}
+      </div>
+    </template>
+
+
   </div>
 </template>
 
@@ -19,6 +26,11 @@ export default {
   name: 'App',
   components: {
     MyRender
+  },
+  data() {
+    return {
+      name: ''
+    }
   }
 }
 </script>

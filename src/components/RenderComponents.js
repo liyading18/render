@@ -8,6 +8,25 @@ export default {
         };
     },
 
+    props: ['value'],
+    // v-model
+    render(h) {
+        var self = this
+        return h('input', {
+            // 原生dom下的
+            domProps: {
+                value: self.value
+            },
+            on: {
+                'input': function(event) {
+                    self.$emit('input', event.target.value)
+                }
+            }
+        })
+    }
+
+
+
     // <template>
     //     <ul>
     //         <li v-for="item of arr">
@@ -16,9 +35,9 @@ export default {
     //     </ul>
     // </template>
 
-    render(h) {
-        return h('ul', this.arr.map(item => h('li', item)))
-    }
+    // render(h) {
+    //     return h('ul', this.arr.map(item => h('li', item)))
+    // }
 
 
     /* <template>
